@@ -1,4 +1,4 @@
-function latex = latexTable(input)
+function latex = latexTable(given_input)
 % An easy to use function that generates a LaTeX table from a given MATLAB
 % input struct containing numeric values. The LaTeX code is printed in the
 % command window for quick copy&paste and given back as a cell array.
@@ -105,7 +105,8 @@ function latex = latexTable(input)
 % These settings are used if the corresponding optional inputs are not given.
 %
 % Placement of the table in LaTex document
-if isfield(input,'tablePlacement') && (length(input.tablePlacement)>0)
+input = given_input;
+if isfield(input,'tablePlacement')
     input.tablePlacement = ['[',input.tablePlacement,']'];
 else
     input.tablePlacement = '';
